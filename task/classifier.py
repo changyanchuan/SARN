@@ -75,7 +75,7 @@ class Classifier(BaseTask):
                                         [ {'params': self.classifier.parameters(), \
                                             'lr': Config.fcnclassifier_learning_rate, \
                                             'weight_decay': Config.fcnclassifier_learning_weight_decay}, \
-                                          {'params': self.encoder.model.encoder_q.layer_out.parameters(), \
+                                          {'params': self.encoder.model.encoder_q.parameters(), \
                                             'lr': Config.fcnclassifier_learning_rate * Config.task_finetune_lr_rescale} \
                                         ])
 

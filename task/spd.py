@@ -87,7 +87,7 @@ class SPD(BaseTask):
                                         [ {'params': self.distregression.parameters(), \
                                             'lr': Config.spd_learning_rate, \
                                             'weight_decay': Config.spd_learning_weight_decay}, \
-                                          {'params': self.encoder.model.encoder_q.layer_out.parameters(), \
+                                          {'params': self.encoder.model.encoder_q.parameters(), \
                                             'lr': Config.spd_learning_rate * Config.task_finetune_lr_rescale} \
                                         ])
         
