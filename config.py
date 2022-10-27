@@ -82,7 +82,7 @@ class Config:
     #=============== Downstream tasks ===============
     task_pretrained_model = False # SARN
     task_encoder_model = 'SARN' # SARN
-    task_name = 'trajsimi' # classify, trajsimi, locpred
+    task_name = 'classify' # classify, trajsimi, locpred
     task_repeats = 1
     task_encoder_mode = ''  # {'SARN':'dump'}
     task_finetune_lr_rescale = 0.2 
@@ -187,7 +187,7 @@ class Config:
             elif cls.task_name == 'trajsimi':
                 cls.task_finetune_lr_rescale = 0.5 # 0.2
             elif cls.task_name == 'spd':
-                cls.task_finetune_lr_rescale = 0.5 # 0.1
+                cls.task_finetune_lr_rescale = 0.1 # 0.1
 
         cls.sarn_moco_loss_global_weight = 1 - cls.sarn_moco_loss_local_weight
 

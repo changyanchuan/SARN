@@ -66,7 +66,7 @@ def parse_args():
 
     parser.add_argument('--dataset', type = str, required = True, help = 'SF|CD|BJ')
     parser.add_argument('--task_pretrained_model', dest = 'task_pretrained_model', action='store_true')
-    parser.add_argument('--task_name', type = str, required = True, help = 'classify|trajsimi|spd')
+    parser.add_argument('--task_name', type = str, help = 'classify|trajsimi|spd')
     parser.add_argument('--task_encoder_model', type = str, required = True, help = 'dump|finetune')
 
     parser.add_argument('--seed', type = int, help = '')
