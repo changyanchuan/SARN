@@ -71,7 +71,7 @@ python train.py --task_encoder_model SARN --dataset SF --task_name spd --task_pr
 ### FAQ
 ##### Datasets
 To use your own datasets, you may need to follow the steps below:
-1. Download the [OpenStreetMap](https://www.openstreetmap.org/) xml dataset of a certain area.
+1. Download the [OpenStreetMap](https://www.openstreetmap.org/) xml dataset of a certain area. (See `./data/OSM_SanFrancisco_downtown_raw`).
 2. Extract the road network from the xml dataset and dump the data to the dedicated files. (See `./utils/osm2roadnetwork.py` and `./data/OSM_SanFrancisco_downtown_raw`).
 3. Prepare the trajectory dataset used in trajsimi task. (See `./utils/traj_preprocess_sf.py`). 
 4. The ground-truth labels used in downstream tasks are created during the downstream task training, but such process will be only executed once. After the first time, such labels will be read from files created during the first execution. (See `./task/classifier.py::Classifier.classifier_datasets`, `./task/traj_simi_v2.py::TrajSimi.load_trajsimi_dataset` and `./task/spd.py::SPD.get_spd_dict`).
