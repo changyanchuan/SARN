@@ -1,5 +1,9 @@
 ## SARN: Spatial Structure-Aware Road Network Embedding via Graph Contrastive Learning
 
+
+![model_overview](https://user-images.githubusercontent.com/9978126/198295822-e880ff26-9d76-4531-a6ee-25dce5ec1cfd.png)
+
+
 This is a pytorch implementation of the [SARN paper](https://openproceedings.org/2023/conf/edbt/paper-193.pdf):
 
 ```
