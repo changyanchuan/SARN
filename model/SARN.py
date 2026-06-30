@@ -300,6 +300,21 @@ def graph_aug_edgeindex(edge_index: EdgeIndex):
                                                 replace = False))
     n_topo_remove = len(edges_idxs_to_remove)
 
+    if not Config.rnce_wo_spatial_adj:
+        edges_spatial_weight = edge_index.sweight # shallow copy
+        edges_spatial_weight_0 = (edges_spatial_weight == 0) # to mask
+        n_spatial = n_ori_edges - sum(edges_spatial_weight_0)
+
+        edges_spatial_weight = 1 - edges_spatial_weight
+        edges_spatial_weight[edges_spatial_weight_0] = 0
+        sum_sweight = sum(edges_spatial_weight)
+        edges_spatial_weight = edges_spatial_weight / sum_sweight
+        edges_spatial_weight = edges_spatial_weight.tolist()
+
+        spatial_to_remove = set(np.random.choice(n_ori_edges, p = edges_spatial_weight, size = int(Config.sarn_break_edge_spatial_prob * n_spatial), replace = False))
+        n_spatial_remove = len(spatial_to_remove)
+        edges_idxs_to_remove = edges_idxs_to_remove.union(spatial_to_remove)
+    
     edges_idxs_to_remove = list(edges_idxs_to_remove)
     edge_index.remove_edges(edges_idxs_to_remove)
 
